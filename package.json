@@ -1,0 +1,23 @@
+{
+  "name": "gshack-team-ooi",
+  "version": "1.0.0",
+  "description": "Proyecto para el Hackaton de Grupo Salinas",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eljurim/GSHack-Team-OoI.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "html5"
+  ],
+  "author": "OoI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eljurim/GSHack-Team-OoI/issues"
+  },
+  "homepage": "https://github.com/eljurim/GSHack-Team-OoI#readme"
+}

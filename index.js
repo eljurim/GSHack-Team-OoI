@@ -29,7 +29,7 @@ db.post("/linker",(req,res)=>{
         {
             res.send(`Se encontro el usuario y los productos consultados por el/ella fueron  ${JSON.stringify(workingFile[req.body.machineId])}` )
         } else {
-            res.send("el cliente no existe")
+            res.send("el cliente no existe, guardando nueva entrada")
         }
 
     }
@@ -40,6 +40,16 @@ db.post("/linker",(req,res)=>{
 
 })
 
+db.post('/newEntry',(req,res)=>{
+    let newItem = req.body
+    workingFile[req.body.machineId] = {
+        skus: req.body.skus,
+        date: new Date()
+    }
+
+    fs.writeFileSync('local_files/payload.json',JSON.stringify(workingFile),'utf8')
+    res.send("El nuevo objeto es " + JSON.stringify(workingFile))
+})
 
 db.listen(DB_PORT,()=>{
     console.log(`API excuchando por el puerto ${DB_PORT}`)    

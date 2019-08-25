@@ -88,3 +88,16 @@ objestosAndres.forEach((objectoIterado)=>{
     console.log(objectoIterado.price)
     htmlContructor(objectoIterado)
 })
+
+var getVisitedIds = () =>{
+    let cookiesString = decodeURIComponent(document.cookie)
+    let cookieArray = cookiesString.split(';')
+    var match = cookieArray.find(value => value.match('scarab.mayAdd'));
+    var visitedIdsObjects = JSON.parse(match.split('=')[1])
+    var visitedIdsArray = visitedIdsObjects.map((value)=> Object.values(value)[0])
+    console.log(visitedIdsArray)
+}
+
+fetch('http://localhost:1979/clientList',()=>{
+
+})

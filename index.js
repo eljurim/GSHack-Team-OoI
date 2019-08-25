@@ -6,21 +6,21 @@ const db = express()
 
 
 var workingFile = JSON.parse(fs.readFileSync('local_files/payload.json',"utf8"))
-
-
+ 
+/*
+async function consultarProductosVisitados()  {
+    await fetch('http://localhost:1979/clientList/k24lk234kln2l34nid1').then(htmlResponse=>htmlResponse).then(data => data)
+}
+var test =  consultarProductosVisitados()
 //console.log(Object.keys(workingFile))
-
+*/
 db.use(express.json())
-
-//la cosulta de productos visitados requiere la entrada de #machine-id
-
-db.get("/linker",(req,res)=>{
-
-
-
+  db.get('/clientList/:machineId',(req,res)=>{
+    let info =  consultarProductosVisitados()
+    console.log(info)
+    res.send(`quieres saber acerca de ${req.params.machineId}`)
 })
-
-db.post("/linker",(req,res)=>{
+db.post("/clientList",(req,res)=>{
 
 
     if (req.body.machineId) {
@@ -40,7 +40,7 @@ db.post("/linker",(req,res)=>{
 
 })
 
-db.post('/newEntry',(req,res)=>{
+db.post('/newClient',(req,res)=>{
     let newItem = req.body
     workingFile[req.body.machineId] = {
         skus: req.body.skus,

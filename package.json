@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/eljurim/GSHack-Team-OoI/issues"
   },
-  "homepage": "https://github.com/eljurim/GSHack-Team-OoI#readme"
+  "homepage": "https://github.com/eljurim/GSHack-Team-OoI#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

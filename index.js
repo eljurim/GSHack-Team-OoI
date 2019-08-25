@@ -22,8 +22,8 @@ app.use(express.static('./index.html'))
 
 
   db.get('/clientList/:machineId',(req,res)=>{
-    let info =  consultarProductosVisitados()
-    console.log(info)
+    //let info =  consultarProductosVisitados()
+    //console.log(info)
     res.send(`quieres saber acerca de ${req.params.machineId}`)
 })
 db.post("/clientList",(req,res)=>{

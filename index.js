@@ -1,8 +1,10 @@
 const DB_PORT = 1979
+const WEB_PORT = 8080
 const express = require('express')
 const fs = require('fs')
 
 const db = express()
+const app = express()
 
 
 var workingFile = JSON.parse(fs.readFileSync('local_files/payload.json',"utf8"))
@@ -15,6 +17,10 @@ var test =  consultarProductosVisitados()
 //console.log(Object.keys(workingFile))
 */
 db.use(express.json())
+app.use(express.static('./index.html'))
+
+
+
   db.get('/clientList/:machineId',(req,res)=>{
     let info =  consultarProductosVisitados()
     console.log(info)
@@ -52,5 +58,9 @@ db.post('/newClient',(req,res)=>{
 })
 
 db.listen(DB_PORT,()=>{
+    console.log(`API excuchando por el puerto ${DB_PORT}`)    
+})
+
+db.listen(WEB_PORT,()=>{
     console.log(`API excuchando por el puerto ${DB_PORT}`)    
 })

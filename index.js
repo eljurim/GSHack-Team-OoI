@@ -2,7 +2,7 @@ const DB_PORT = 1979
 const WEB_PORT = 8080
 const express = require('express')
 const fs = require('fs')
-
+var cors = require('cors')
 const db = express()
 const app = express()
 
@@ -16,6 +16,9 @@ async function consultarProductosVisitados()  {
 var test =  consultarProductosVisitados()
 //console.log(Object.keys(workingFile))
 */
+db.use(cors())
+app.use(cors())
+
 db.use(express.json())
 app.use(express.static('public'))
 
@@ -24,7 +27,14 @@ app.use(express.static('public'))
   db.get('/clientList/:machineId',(req,res)=>{
     //let info =  consultarProductosVisitados()
     //console.log(info)
-    res.send(`quieres saber acerca de ${req.params.machineId}`)
+    if ( Object.keys(workingFile).find((element)=> element === req.params.machineId ))
+        {
+            res.send(JSON.stringify(workingFile[req.params.machineId]))
+        } else {
+            res.send("el cliente no existe, guardando nueva entrada")
+        }
+    //res.send(Object.keys(workingFile).find((element)=> element === req.params.machineId ))
+    //res.send(`quieres saber acerca de ${req.params.machineId}`)
 })
 db.post("/clientList",(req,res)=>{
 

@@ -97,7 +97,3 @@ var getVisitedIds = () =>{
     var visitedIdsArray = visitedIdsObjects.map((value)=> Object.values(value)[0])
     console.log(visitedIdsArray)
 }
-
-fetch('http://localhost:1979/clientList',()=>{
-
-})

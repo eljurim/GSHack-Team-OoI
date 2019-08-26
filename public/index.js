@@ -17,7 +17,7 @@ var test =  consultarProductosVisitados()
 //console.log(Object.keys(workingFile))
 */
 db.use(express.json())
-app.use(express.static('./index.html'))
+app.use(express.static('public'))
 
 
 

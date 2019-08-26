@@ -61,6 +61,6 @@ db.listen(DB_PORT,()=>{
     console.log(`API excuchando por el puerto ${DB_PORT}`)    
 })
 
-db.listen(WEB_PORT,()=>{
-    console.log(`API excuchando por el puerto ${DB_PORT}`)    
+app.listen(WEB_PORT,()=>{
+    console.log(`API excuchando por el puerto ${WEB_PORT}`)    
 })
